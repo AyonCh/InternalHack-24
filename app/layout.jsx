@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <div className="pt-[100px] px-[30px] grid grid-rows-[1fr_auto] min-h-dvh">
+        <div className="px-[30px] grid grid-rows-[1fr_auto] min-h-dvh">
           {children}
           <Footer />
         </div>
