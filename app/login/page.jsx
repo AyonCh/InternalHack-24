@@ -12,13 +12,13 @@ export default function About() {
   };
   return (
     <div className="flex justify-center items-center">
-      <div className="rounded-lg border-[1px] border-white/10 flex justify-evenly items-center gap-10 px-10 w-max-full">
+      <div className="rounded-lg border-[1px] border-white/10 flex justify-evenly items-center lg:gap-10 sm:px-10 pt-5 max-w-full flex-wrap lg:flex-nowrap">
         <div className="flex justify-center items-center text-center">
           <h1 className="text-6xl font-bold w-60">
             {activePage == "login" ? "Login" : "Sign Up"}
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center gap-5 p-10 w-[500px]">
+        <div className="flex flex-col justify-center items-center gap-5 p-10 w-full sm:w-[500px]">
           <div className="flex gap-1 rounded-md p-1 w-full bg-white/5">
             <button
               className={`hover:bg-white/5 p-1 rounded-sm w-full ${activePage == "signup" ? "bg-white/5" : ""}`}
