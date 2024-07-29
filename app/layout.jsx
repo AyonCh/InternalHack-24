@@ -10,10 +10,10 @@ export const metadata = {
   description: "NuxeCorps",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-text`}>
+      <body className={`${inter.className} text-text bg-background`}>
         <Navbar />
         <div className="sm:px-[30px] px-[20px] grid grid-rows-[1fr_auto] min-h-dvh">
           {children}

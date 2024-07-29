@@ -1,23 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
+import { useRef } from "react";
 
 export default function Navbar() {
-  let navbar;
-  useEffect(() => {
-    navbar = document.getElementById("navbar");
-  }, []);
+  const navbarRef = useRef(null);
   const handleHamburgerClick = (state) => {
     if (state == "open") {
-      navbar.showModal();
+      navbarRef.current.showModal();
     } else {
-      navbar.close();
+      navbarRef.current.close();
     }
   };
 
   return (
     <>
-      <div className="nav fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border-[1px] border-white/10">
+      <div className="nav fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border-[1px] border-primary/10">
         <nav className="flex justify-between">
           <h1>NuxeCorps</h1>
           <div className="sm:flex hidden gap-5">
@@ -35,7 +32,8 @@ export default function Navbar() {
       </div>
       <dialog
         id="navbar"
-        className="w-dvw h-[92dvh] p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-md"
+        className="w-dvw h-dvh fixed top-[30px] p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-md"
+        ref={navbarRef}
       >
         <div className="flex flex-col gap-5">
           <a href="/">Home</a>
@@ -47,7 +45,7 @@ export default function Navbar() {
           onClick={() => handleHamburgerClick("close")}
           className="absolute right-5 top-5"
         >
-          X
+          &#10005;
         </button>
       </dialog>
     </>
