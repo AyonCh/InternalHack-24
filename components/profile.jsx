@@ -12,14 +12,16 @@ export default function Profile({ profileRef, handleClick, session }) {
   return (
     <dialog
       id="navbar"
-      className="w-dvw h-dvh fixed top-[30px] p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-md"
+      className="w-dvw h-dvh fixed p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-md"
       ref={profileRef}
     >
-      <div className="w-full h-full flex justify-center gap-10 items-center">
+      <div className="w-full h-full flex justify-center gap-1 sm:gap-10 items-center md:flex-nowrap flex-wrap text-center md:text-left">
         <img src={session["pfp"]} alt="alt" width={300} height={300} />
-        <div className="flex flex-col gap-2 items-start">
-          <div className="flex flex-col items-start gap-1">
-            <h1 className="text-5xl font-bold">{session["name"]}</h1>
+        <div className="flex flex-col gap-2 md:items-start items-center">
+          <div className="flex flex-col md:items-start gap-1">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              {session["name"]}
+            </h1>
             <p className="text-text/50">{session["email"]}</p>
           </div>
           <button
