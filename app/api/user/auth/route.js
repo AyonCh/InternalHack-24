@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import client from "@/util/mongo";
 
-export async function GET(req) {
+export async function GET() {
   const token = cookies().get("token");
   const refreshToken = cookies().get("refreshToken");
 
@@ -17,10 +17,6 @@ export async function GET(req) {
 
     const db = client.db("internalhack-24");
     const user = await db.collection("users").findOne({ name: data["name"] });
-
-    if (user["loggedin"] != true) {
-      return NextResponse.json({ message: "User logged out" });
-    }
 
     const newToken = jwt.sign(
       { name: user["name"], email: user["email"], pfp: user["pfp"] },

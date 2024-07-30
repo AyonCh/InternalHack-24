@@ -20,12 +20,10 @@ export default function About() {
       ).data;
 
       setSession(res);
-
-      console.log(res);
     })();
   }, []);
 
-  if (session) {
+  if (session["name"]) {
     router.push("/");
   }
 

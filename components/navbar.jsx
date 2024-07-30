@@ -16,8 +16,6 @@ export default function Navbar() {
       ).data;
 
       setSession(res);
-
-      console.log(res);
     })();
   }, []);
 
@@ -47,7 +45,7 @@ export default function Navbar() {
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/shop">Shop</a>
-            {session ? (
+            {session["name"] ? (
               <button onClick={() => handleProfileClick("open")}>
                 <img src={session["pfp"]} alt="avatar" width={25} height={25} />
               </button>
@@ -72,7 +70,7 @@ export default function Navbar() {
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/shop">Shop</a>
-            {session ? (
+            {session["name"] ? (
               <button onClick={() => handleProfileClick("open")}>
                 <img src={session["pfp"]} alt="avatar" width={25} height={25} />
               </button>

@@ -1,5 +1,14 @@
+import axios from "axios";
+
 export default function Profile({ profileRef, handleClick, session }) {
-  const handleClick = () => {};
+  const handleLogoutClick = async () => {
+    let res = (
+      await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/logout`)
+    ).data;
+    alert(res["message"]);
+
+    handleClick("close");
+  };
   return (
     <dialog
       id="navbar"
@@ -15,7 +24,7 @@ export default function Profile({ profileRef, handleClick, session }) {
           </div>
           <button
             className=" rounded-lg py-2 px-6 hover:bg-primary/10 bg-primary/5"
-            onClick={() => handleClick()}
+            onClick={() => handleLogoutClick()}
           >
             Logout
           </button>
