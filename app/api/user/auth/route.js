@@ -30,9 +30,9 @@ export async function GET() {
       name: "token",
       value: newToken,
       httpOnly: true,
-      secure: process.env.ENV == "production" ? true : false,
+      secure: true,
       path: "/",
-      domain: process.env.ENV == "production" ? process.env.DOMAIN : "",
+      domain: "",
       maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
     });
 

@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "NuxeCorps",
   description: "NuxeCorps",
+  manifest: "/manifest.json",
 };
 
 export default async function RootLayout({ children }) {

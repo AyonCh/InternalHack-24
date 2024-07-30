@@ -36,9 +36,9 @@ export async function POST(req) {
     name: "token",
     value: token,
     httpOnly: true,
-    secure: process.env.ENV == "production" ? true : false,
+    secure: true,
     path: "/",
-    domain: process.env.ENV == "production" ? process.env.DOMAIN : "",
+    domain: "",
     maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
   });
 
@@ -46,9 +46,9 @@ export async function POST(req) {
     name: "refreshToken",
     value: refreshToken,
     httpOnly: true,
-    secure: process.env.ENV == "production" ? true : false,
+    secure: true,
     path: "/",
-    domain: process.env.ENV == "production" ? process.env.DOMAIN : "",
+    domain: "",
     maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
   });
 
