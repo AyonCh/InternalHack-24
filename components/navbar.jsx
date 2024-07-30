@@ -32,6 +32,7 @@ export default function Navbar() {
   const handleProfileClick = (state) => {
     if (state == "open") {
       profileRef.current.showModal();
+      handleHamburgerClick("close");
     } else {
       profileRef.current.close();
     }
@@ -72,9 +73,9 @@ export default function Navbar() {
             <a href="/about">About</a>
             <a href="/shop">Shop</a>
             {session ? (
-              <a href="/profile">
+              <button onClick={() => handleProfileClick("open")}>
                 <img src={session["pfp"]} alt="avatar" width={25} height={25} />
-              </a>
+              </button>
             ) : (
               <a href="/login">Login</a>
             )}
@@ -84,7 +85,11 @@ export default function Navbar() {
           </button>
         </div>
       </dialog>
-      <Profile profileRef={profileRef} handleClick={handleProfileClick} />
+      <Profile
+        profileRef={profileRef}
+        handleClick={handleProfileClick}
+        session={session}
+      />
     </>
   );
 }
