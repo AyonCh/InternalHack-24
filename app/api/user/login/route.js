@@ -20,9 +20,13 @@ export async function POST(req) {
     });
   }
 
-  const token = jwt.sign({ ...user }, process.env.JWT_SEC, {
-    expiresIn: "15m",
-  });
+  const token = jwt.sign(
+    { name: user["name"], email: user["email"], pfp: user["pfp"] },
+    process.env.JWT_SEC,
+    {
+      expiresIn: "15m",
+    },
+  );
 
   const refreshToken = jwt.sign({ name: user["name"] }, process.env.JWT_SEC, {
     expiresIn: "30d",

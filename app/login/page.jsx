@@ -1,18 +1,42 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function About() {
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const router = useRouter();
+  const [session, setSession] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      let res = (
+        await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/auth`)
+      ).data;
+
+      setSession(res);
+
+      console.log(res);
+    })();
+  }, []);
+
+  if (session) {
+    router.push("/");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isLogin) {
+      if (password != repeatPassword) {
+        alert("Both passwords are different");
+        return;
+      }
       let signUpRes = (
         await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/user/register`, {
           name,
@@ -27,6 +51,7 @@ export default function About() {
       }
 
       alert(signUpRes["message"]);
+      setIsLogin(!isLogin);
     }
 
     let loginRes = (
@@ -42,6 +67,7 @@ export default function About() {
     }
 
     alert(loginRes["message"]);
+    router.push("/");
   };
   return (
     <div className="flex justify-center items-center">
@@ -93,6 +119,15 @@ export default function About() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {!isLogin && (
+              <input
+                type="password"
+                placeholder="Re-type Password"
+                className="border-[1px] border-primary/5 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+                value={repeatPassword}
+                onChange={(e) => setRepeatPassword(e.target.value)}
+              />
+            )}
             <button className="hover:bg-primary/5 p-2 rounded-md w-full">
               Submit
             </button>

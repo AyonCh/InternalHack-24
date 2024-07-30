@@ -16,6 +16,7 @@ export async function POST(req) {
     name,
     email,
     password,
+    pfp: `https://api.dicebear.com/9.x/initials/svg?seed="${name}"&backgroundType=gradientLinear&radius=50`,
     loggedin: true,
   });
 

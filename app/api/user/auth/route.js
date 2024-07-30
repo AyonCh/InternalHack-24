@@ -22,9 +22,13 @@ export async function GET(req) {
       return NextResponse.json({ message: "User logged out" });
     }
 
-    const newToken = jwt.sign({ ...user }, process.env.JWT_SEC, {
-      expiresIn: "15m",
-    });
+    const newToken = jwt.sign(
+      { name: user["name"], email: user["email"], pfp: user["pfp"] },
+      process.env.JWT_SEC,
+      {
+        expiresIn: "15m",
+      },
+    );
 
     cookies().set({
       name: "token",
