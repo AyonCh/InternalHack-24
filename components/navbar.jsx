@@ -9,13 +9,13 @@ export default function Navbar() {
   const [session, setSession] = useState({});
 
   useEffect(() => {
-    (async () => {
+    setInterval(async () => {
       let res = (
         await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/auth`)
       ).data;
 
       setSession(res);
-    })();
+    }, 10000);
   }, []);
 
   const handleProfileClick = (state) => {
