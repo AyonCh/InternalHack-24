@@ -9,7 +9,7 @@ export default function Home() {
             <h1 className="text-[60px] sm:text-[100px] font-bold title glow">
               NuxeCorps
             </h1>
-            <p className="sm:text-[20px] text-[15px]">
+            <p className="sm:text-[20px] text-[15px] opacity-50">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
               eos sed? Porro laborum error officia vel dolore, facilis eligendi
               debitis earum voluptatum accusamus est, sunt quos accusantium,
