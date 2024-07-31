@@ -15,7 +15,7 @@ export default function Navbar() {
       ).data;
 
       setSession(res);
-    }, 10000);
+    }, 1000);
   }, []);
 
   const handleProfileClick = (state) => {
