@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
         className={`${inter.className} text-text bg-background overflow-x-hidden`}
       >
         <Navbar />
-        <div className="sm:px-[30px] px-[20px] grid grid-rows-[1fr_auto] min-h-dvh">
+        <div className="grid grid-rows-[1fr_auto] min-h-dvh">
           {children}
           <Footer />
         </div>

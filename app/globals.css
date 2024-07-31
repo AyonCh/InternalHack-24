@@ -45,10 +45,27 @@ html {
   margin-left: -5px;
   background-image: url("/glow.png");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   border-radius: 50%;
   z-index: -2;
-  opacity: 50%;
+  opacity: 20%;
+}
+
+.grid-lattice::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  transform: translateX(-50%);
+  height: 100dvh;
+  width: 100dvw;
+  background-image: url("/grid.png");
+  background-position: center;
+  background-size: contain;
+  z-index: -2;
+  opacity: 20%;
+  mask-image: radial-gradient(black, transparent 75%);
 }
 
 .links>* {
