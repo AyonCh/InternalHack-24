@@ -69,7 +69,7 @@ export default function About() {
   };
   return (
     <div className="flex justify-center items-center">
-      <div className="rounded-lg border-[1px] border-primary/10 flex justify-evenly items-center lg:gap-10 sm:px-10 pt-5 max-w-full flex-wrap lg:flex-nowrap">
+      <div className="rounded-lg border-[1px] border-primary/10 flex justify-evenly items-center lg:gap-10 sm:px-10 pt-5 max-w-full flex-wrap lg:flex-nowrap bg-background/20">
         <div className="flex justify-center items-center text-center">
           <h1 className="text-6xl font-bold w-60">
             {isLogin ? "Login" : "Sign Up"}

@@ -16,15 +16,52 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+html {
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.title {
+  background: radial-gradient(#f1defc 0%, transparent 200%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 50%;
+  width: 1000px;
+  height: 1000px;
+  margin-left: -5px;
+  background-image: url("/glow.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: -2;
+  opacity: 50%;
+}
+
+.links>* {
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+.links>a:first-child {
+  background: linear-gradient(to bottom right,
+      rgba(208, 126, 247, 0.7),
+      rgba(250, 20, 58, 0.7));
+}
+
+.links>a:last-child {
+  border: 1px solid rgba(208, 126, 247, 0.5);
 }

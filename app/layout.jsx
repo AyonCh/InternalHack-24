@@ -14,7 +14,9 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-text bg-background`}>
+      <body
+        className={`${inter.className} text-text bg-background overflow-x-hidden`}
+      >
         <Navbar />
         <div className="sm:px-[30px] px-[20px] grid grid-rows-[1fr_auto] min-h-dvh">
           {children}

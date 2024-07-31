@@ -33,7 +33,7 @@ export default function Navbar() {
           <h1>NuxeCorps</h1>
           <div className="sm:flex hidden gap-5">
             <a href="/">Home</a>
-            <a href="/about">About</a>
+            <a href="/#about">About</a>
             <a href="/shop">Shop</a>
             {session["name"] ? (
               <button onClick={() => handleProfileClick("open")}>
