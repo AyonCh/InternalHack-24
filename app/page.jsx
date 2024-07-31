@@ -4,10 +4,12 @@ export default function Home() {
   return (
     <div className="pt-[200px] flex justify-start flex-col">
       <div className="flex justify-center items-center">
-        <div className="flex flex-col justify-center text-center items-center w-[700px] gap-5">
+        <div className="flex flex-col justify-center text-center items-center max-w-[700px] gap-5">
           <div>
-            <h1 className="text-[100px] font-bold title glow">NuxeCorps</h1>
-            <p>
+            <h1 className="text-[60px] sm:text-[100px] font-bold title glow">
+              NuxeCorps
+            </h1>
+            <p className="sm:text-[20px] text-[15px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
               eos sed? Porro laborum error officia vel dolore, facilis eligendi
               debitis earum voluptatum accusamus est, sunt quos accusantium,
