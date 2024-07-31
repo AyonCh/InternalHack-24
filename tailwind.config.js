@@ -23,7 +23,7 @@ module.exports = {
         primary: "#d07ef7",
         secondary: "#9d130c",
         accent: "#fa143a",
-        border: "hsl(var(--border))",
+        border: "rgba(208, 126, 247, 0.1)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         foreground: "hsl(var(--foreground))",

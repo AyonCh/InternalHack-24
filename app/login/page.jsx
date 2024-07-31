@@ -1,5 +1,6 @@
 "use client";
 
+import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -12,6 +13,7 @@ export default function About() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const router = useRouter();
   const [session, setSession] = useState({});
+  const { toast } = useToast();
 
   useEffect(() => {
     (async () => {
@@ -32,7 +34,11 @@ export default function About() {
 
     if (!isLogin) {
       if (password != repeatPassword) {
-        alert("Both passwords are different");
+        toast({
+          description: "Passwords are not matching",
+          variant: "destructive",
+        });
+
         return;
       }
       let signUpRes = (
@@ -44,11 +50,11 @@ export default function About() {
       ).data;
 
       if (signUpRes["error"]) {
-        alert(signUpRes["error"]);
+        toast({ description: signUpRes["error"], variant: "destructive" });
         return;
       }
 
-      alert(signUpRes["message"]);
+      toast({ description: signUpRes["message"] });
       setIsLogin(!isLogin);
     }
 
@@ -60,11 +66,11 @@ export default function About() {
     ).data;
 
     if (loginRes["error"]) {
-      alert(loginRes["error"]);
+      toast({ description: loginRes["error"], variant: "destructive" });
       return;
     }
 
-    alert(loginRes["message"]);
+    toast({ description: loginRes["message"] });
     router.push("/");
   };
   return (

@@ -1,11 +1,13 @@
 import axios from "axios";
+import { useToast } from "./ui/use-toast";
 
 export default function Profile({ profileRef, handleClick, session }) {
+  const { toast } = useToast();
   const handleLogoutClick = async () => {
     let res = (
       await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/logout`)
     ).data;
-    alert(res["message"]);
+    toast({ description: res["message"] });
 
     handleClick("close");
   };
