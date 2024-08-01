@@ -28,11 +28,11 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border-[1px] border-primary/10">
+      <div className="z-10 fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border-[1px] border-primary/10">
         <nav className="flex justify-between">
           <h1>NuxeCorps</h1>
           <div className="sm:flex hidden gap-5">
-            <a href="/">Home</a>
+            <a href="/#home">Home</a>
             <a href="/#about">About</a>
             <a href="/shop">Shop</a>
             {session["name"] ? (
@@ -55,14 +55,14 @@ export default function Navbar() {
               Login
             </a>
           )}
-          <div className="sm:hidden fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] bottom-[-84dvh] rounded-lg border-[1px] border-primary/10">
-            <div className="flex justify-between">
-              <a href="/">Home</a>
-              <a href="/about">About</a>
-              <a href="/shop">Shop</a>
-            </div>
-          </div>
         </nav>
+      </div>
+      <div className="z-10 sm:hidden fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] bottom-[30px] rounded-lg border-[1px] border-primary/10">
+        <div className="flex justify-between">
+          <a href="/#home">Home</a>
+          <a href="/#about">About</a>
+          <a href="/shop">Shop</a>
+        </div>
       </div>
       <Profile
         profileRef={profileRef}
