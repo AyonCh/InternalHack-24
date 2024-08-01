@@ -32,7 +32,9 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text;
+    background: #080609;
+    color: #f1defc;
   }
 }
 
