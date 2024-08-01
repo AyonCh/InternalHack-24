@@ -17,7 +17,7 @@ export default function Profile({ profileRef, handleClick, session }) {
       className="w-dvw h-dvh fixed p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
       ref={profileRef}
     >
-      <div className="w-full h-full flex justify-center gap-1 sm:gap-10 items-center md:flex-nowrap flex-wrap text-center md:text-left">
+      <div className="w-full h-full flex justify-center gap-1 sm:gap-10 items-center md:flex-row flex-col text-center md:text-left">
         <img src={session["pfp"]} alt="alt" width={300} height={300} />
         <div className="flex flex-col gap-2 md:items-start items-center">
           <div className="flex flex-col md:items-start gap-1">
