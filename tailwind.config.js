@@ -26,7 +26,7 @@ module.exports = {
         border: "rgba(208, 126, 247, 0.1)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        foreground: "hsl(var(--foreground))",
+        foreground: "#f1defc",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
