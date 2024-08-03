@@ -14,7 +14,7 @@ export default function Profile({ profileRef, handleClick, session }) {
   return (
     <dialog
       id="navbar"
-      className="w-dvw h-dvh fixed p-5 rounded-lg text-text border border-white/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
+      className="w-dvw h-dvh p-5 rounded-lg text-text border border-primary/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
       ref={profileRef}
     >
       <div className="w-full h-full flex justify-center gap-1 sm:gap-10 items-center md:flex-row flex-col text-center md:text-left">
