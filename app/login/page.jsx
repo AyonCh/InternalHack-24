@@ -75,7 +75,7 @@ export default function About() {
   };
   return (
     <div className="pt-[150px] sm:pt-0 flex justify-center items-center">
-      <div className="rounded-lg border-[1px] border-primary/10 flex justify-evenly items-center lg:gap-10 sm:px-10 pt-5 max-w-full flex-wrap lg:flex-nowrap bg-background/20">
+      <div className="rounded-lg border border-primary/10 flex justify-evenly items-center lg:gap-10 sm:px-10 pt-5 max-w-full flex-wrap lg:flex-nowrap bg-background/20">
         <div className="flex justify-center items-center text-center">
           <h1 className="text-6xl font-bold w-60">
             {isLogin ? "Login" : "Sign Up"}
@@ -103,7 +103,7 @@ export default function About() {
             <input
               type="text"
               placeholder="Name"
-              className="border-[1px] border-primary/5 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+              className="border border-primary/5 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -111,7 +111,7 @@ export default function About() {
               <input
                 type="email"
                 placeholder="Email"
-                className="border-[1px] border-primary/5 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+                className="border border-primary/5 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -119,7 +119,7 @@ export default function About() {
             <input
               type="password"
               placeholder="Password"
-              className="border-[1px] border-primary/5 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+              className="border border-primary/5 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -127,7 +127,7 @@ export default function About() {
               <input
                 type="password"
                 placeholder="Re-type Password"
-                className="border-[1px] border-primary/5 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+                className="border border-primary/5 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
                 value={repeatPassword}
                 onChange={(e) => setRepeatPassword(e.target.value)}
               />

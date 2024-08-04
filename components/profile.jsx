@@ -35,8 +35,9 @@ export default function Profile({ profileRef, handleClick, session }) {
         </div>
       </div>
       <button
-        className="absolute top-5 right-5 outline-none"
+        className="absolute top-5 right-5 h-6 w-6"
         onClick={() => handleClick("close")}
+        autoFocus="autofocus"
       >
         &#10005;
       </button>

@@ -41,7 +41,7 @@ export default function ShopCards({ data }) {
             id={"dialog_" + key}
             className="w-dvw h-dvh p-5 rounded-lg text-text border border-primary/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
           >
-            <div className="flex items-start justify-start gap-10 pr-5">
+            <div className="flex items-start justify-start gap-10 pr-10">
               <img
                 src={image}
                 alt="image"
@@ -60,7 +60,7 @@ export default function ShopCards({ data }) {
               </div>
             </div>
             <button
-              className="absolute top-5 right-5 outline-none"
+              className="absolute top-5 right-5 h-6 w-6"
               onClick={() => handleClick(key, "close")}
             >
               &#10005;

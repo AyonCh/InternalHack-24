@@ -15,7 +15,7 @@ export default function Navbar() {
       ).data;
 
       setSession(res);
-    }, 1000);
+    }, 2500);
   }, []);
 
   const handleProfileClick = (state) => {
@@ -57,7 +57,7 @@ export default function Navbar() {
           )}
         </nav>
       </div>
-      <div className="z-10 sm:hidden fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] bottom-[30px] rounded-lg border-[1px] border-primary/10">
+      <div className="z-10 sm:hidden fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] bottom-[30px] rounded-lg border border-primary/10">
         <div className="flex justify-between">
           <a href="/#home">Home</a>
           <a href="/#about">About</a>

@@ -37,7 +37,7 @@ export default function Shop() {
           placeholder="Search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-primary/10 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+          className="border border-primary/10 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
         />
         <ShopCards data={data} />
       </div>
