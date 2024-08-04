@@ -35,7 +35,7 @@ export default function Profile({ profileRef, handleClick, session }) {
         </div>
       </div>
       <button
-        className="absolute top-5 right-5"
+        className="absolute top-5 right-5 outline-none"
         onClick={() => handleClick("close")}
       >
         &#10005;

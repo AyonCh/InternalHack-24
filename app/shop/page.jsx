@@ -1,13 +1,35 @@
 "use client";
 import ShopCards from "@/components/shopcards";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Shop() {
   const [search, setSearch] = useState("");
+  const [res, setRes] = useState([]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let response = (
+        await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/shop`)
+      ).data;
+      setRes(response);
+      setData(response);
+    })();
+  }, []);
+
+  useEffect(() => {
+    setData(
+      res.filter((item) => {
+        return item.title.toLowerCase().includes(search.toLowerCase());
+      }),
+    );
+  }, [search]);
+
   return (
     <div className="px-[30px] pt-[100px]">
       <h1 className="text-[40px] sm:text-[60px] font-bold title text-center">
-        About
+        Shop
       </h1>
       <div className="flex flex-col gap-10">
         <input
@@ -15,22 +37,9 @@ export default function Shop() {
           placeholder="Search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border-[1px] border-primary/10 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
+          className="border border-primary/10 rounded-md bg-transparent p-2 outline-none w-full placeholder:text-text/25"
         />
-        <ShopCards
-          data={[
-            {
-              title: "Ayon",
-              description: "Ayonc",
-              image: "https://api.dicebear.com/9.x/glass/svg?seed=Felix",
-            },
-            {
-              title: "No one",
-              description: "No One",
-              image: "https://api.dicebear.com/9.x/glass/svg?seed=No One",
-            },
-          ]}
-        />
+        <ShopCards data={data} />
       </div>
     </div>
   );

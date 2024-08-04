@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="z-10 fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border-[1px] border-primary/10">
+      <div className="z-10 fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-3 px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border border-primary/10">
         <nav className="flex justify-between">
           <h1>NuxeCorps</h1>
           <div className="sm:flex hidden gap-5">
