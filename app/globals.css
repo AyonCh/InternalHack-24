@@ -74,12 +74,6 @@ html {
   opacity: 20%;
 }
 
-@media only screen and (max-width: 600px) {
-  .glow::after {
-    width: 400px;
-  }
-}
-
 .grid-lattice::after {
   content: "";
   position: absolute;
@@ -94,7 +88,17 @@ html {
   background-size: contain;
   z-index: -2;
   opacity: 20%;
-  mask-image: radial-gradient(black, transparent 75%);
+  mask-image: radial-gradient(black, transparent 60%);
+}
+
+@media only screen and (max-width: 600px) {
+  .glow::after {
+    width: 400px;
+  }
+
+  .grid-lattice::after {
+    top: -20%;
+  }
 }
 
 .links>* {
