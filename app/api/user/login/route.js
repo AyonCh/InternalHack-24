@@ -24,7 +24,7 @@ export async function POST(req) {
     { name: user["name"], email: user["email"], pfp: user["pfp"] },
     process.env.JWT_SEC,
     {
-      expiresIn: "15m",
+      expiresIn: "1d",
     },
   );
 
