@@ -15,14 +15,14 @@ export default function ShopCards({ data }) {
       {data.map(({ title, description, price, image }, key) => (
         <>
           <div
-            className="relative cursor-pointer w-[250px]"
+            className="relative cursor-pointer w-[450px] sm:w-[250px]"
             onClick={() => handleClick(key, "open")}
           >
             <img
               src={image}
               alt="image"
-              height={250}
-              width={250}
+              height={450}
+              width={450}
               draggable={false}
               onDragStart={false}
               className="rounded-lg z-[-1] opacity-70"
@@ -41,7 +41,7 @@ export default function ShopCards({ data }) {
             id={"dialog_" + key}
             className="w-dvw h-dvh p-5 rounded-lg text-text border border-primary/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
           >
-            <div className="flex items-start justify-start gap-10 pr-10">
+            <div className="w-full h-full flex sm:justify-start justify-center gap-1 sm:gap-10 sm:items-start items-center md:flex-row flex-col md:text-left sm:pr-10">
               <img
                 src={image}
                 alt="image"

@@ -7,15 +7,31 @@ import Profile from "./profile";
 export default function Navbar() {
   const profileRef = useRef(null);
   const [session, setSession] = useState({});
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setInterval(async () => {
+    (async () => {
       let res = (
         await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/auth`)
       ).data;
-
       setSession(res);
-    }, 2500);
+
+      let user = (
+        await axios.get(
+          `${process.env.NEXT_PUBLIC_URI}/api/user?name=${res["name"]}`,
+        )
+      ).data;
+
+      setIsAdmin(user["admin"]);
+    })();
+
+    // setInterval(async () => {
+    //   let res = (
+    //     await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/auth`)
+    //   ).data;
+    //
+    //   setSession(res);
+    // }, 5000);
   }, []);
 
   const handleProfileClick = (state) => {
@@ -35,6 +51,7 @@ export default function Navbar() {
             <a href="/#home">Home</a>
             <a href="/#about">About</a>
             <a href="/shop">Shop</a>
+            {isAdmin && <a href="/dashboard">Dasboard</a>}
             {session["name"] ? (
               <button onClick={() => handleProfileClick("open")}>
                 <img src={session["pfp"]} alt="avatar" width={25} height={25} />
@@ -62,6 +79,7 @@ export default function Navbar() {
           <a href="/#home">Home</a>
           <a href="/#about">About</a>
           <a href="/shop">Shop</a>
+          {isAdmin && <a href="/dashboard">dashboard</a>}
         </div>
       </div>
       <Profile

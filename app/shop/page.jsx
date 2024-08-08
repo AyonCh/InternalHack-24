@@ -28,7 +28,7 @@ export default function Shop() {
 
   return (
     <div className="px-[30px] pt-[100px]">
-      <h1 className="text-[40px] sm:text-[60px] font-bold title text-center">
+      <h1 className="text-[40px] sm:text-[60px] font-bold title text-center pb-5">
         Shop
       </h1>
       <div className="flex flex-col gap-10">
@@ -39,7 +39,7 @@ export default function Shop() {
           onChange={(e) => setSearch(e.target.value)}
           className="border border-primary/10 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
         />
-        <ShopCards data={data} />
+        {res.length ? <ShopCards data={data} /> : "Loading..."}
       </div>
     </div>
   );
