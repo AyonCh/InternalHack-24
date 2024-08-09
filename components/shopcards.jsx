@@ -11,12 +11,13 @@ export default function ShopCards({ data }) {
   };
 
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 flex-wrap justify-center sm:justify-start">
       {data.map(({ title, description, price, image }, key) => (
         <>
           <div
             className="relative cursor-pointer w-[450px] sm:w-[250px]"
             onClick={() => handleClick(key, "open")}
+            key={key}
           >
             <img
               src={image}
@@ -31,7 +32,9 @@ export default function ShopCards({ data }) {
               <div className="flex justify-between">
                 <div className="">
                   <h1 className="text-xl font-bold">{title}</h1>
-                  <p className="text-sm text-text/50">{description}</p>
+                  <p className="text-sm text-text/50 w-20 overflow-x-hidden whitespace-nowrap">
+                    {description}
+                  </p>
                 </div>
                 <p className="text-text/50">{price}</p>
               </div>
