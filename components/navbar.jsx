@@ -46,7 +46,9 @@ export default function Navbar() {
     <>
       <div className="z-10 fixed bg-background bg-opacity-10 backdrop-blur-[10px] w-[92dvw] sm:w-[96dvw] py-[10px] px-5 left-[50%] translate-x-[-50%] top-[30px] rounded-lg border border-primary/10">
         <nav className="flex justify-between items-center">
-          <img src="/logo.png" alt="logo" height={30} width={30} />
+          <a href="/#home">
+            <img src="/logo.png" alt="logo" height={30} width={30} />
+          </a>
           <div className="sm:flex hidden gap-5">
             <a href="/#home">Home</a>
             <a href="/#about">About</a>
