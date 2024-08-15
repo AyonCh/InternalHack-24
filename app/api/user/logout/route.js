@@ -6,6 +6,6 @@ export async function GET(req) {
   cookies().delete("refreshToken");
 
   return NextResponse.json({
-    message: "Successfully logged out of this device",
+    message: "Logged out of this device successfully",
   });
 }

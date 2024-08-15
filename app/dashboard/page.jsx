@@ -4,6 +4,7 @@ import AdminCards from "@/components/admincards";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { toast } from "@/components/ui/use-toast";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -65,17 +66,26 @@ export default function Dashboard() {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post(`${process.env.NEXT_PUBLIC_URI}/api/shop/add`, {
-      title,
-      description,
-      price,
-      image,
-    });
+    let res = (
+      await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/shop/add`, {
+        title,
+        description,
+        price,
+        image,
+      })
+    ).data;
+
+    if (res["error"]) {
+      toast({ description: res["error"], variant: "destructive" });
+      handleClick("close");
+      return;
+    }
 
     handleClick("close");
+    toast({ description: res["message"] });
   };
 
   const handleFileUpload = (e) => {
@@ -91,9 +101,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="px-[30px] pt-[100px]">
+      <div className="px-[30px] pt-[100px] pb-32">
         <h1 className="text-[40px] sm:text-[60px] font-bold title text-center pb-5">
-          Dasboard
+          Dashboard
         </h1>
         <div className="flex flex-col gap-10">
           <div className="flex gap-5 flex-wrap sm:flex-nowrap">
@@ -126,7 +136,7 @@ export default function Dashboard() {
               height={500}
               width={500}
               draggable={false}
-              onDragStart={() => {}}
+              onDragStart={() => { }}
               className="rounded-lg z-[-1]"
             />
             <div className="rounded-b-lg bg-background/10 absolute bottom-0 left-0 right-0 px-4 py-3 backdrop-blur-[10px]">
@@ -177,7 +187,7 @@ export default function Dashboard() {
                 height={100}
                 width={100}
                 draggable={false}
-                onDragStart={() => {}}
+                onDragStart={() => { }}
                 className="rounded-lg z-[-1]"
               />
             </label>
@@ -186,7 +196,7 @@ export default function Dashboard() {
             </button>
           </form>
           <button
-            className="absolute top-5 right-5 h-6 w-6"
+            className="absolute top-5 right-5 h-6 w-6 cursor-pointer"
             onClick={() => handleClick("close")}
           >
             &#10005;

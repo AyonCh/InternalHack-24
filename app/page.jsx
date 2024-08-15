@@ -36,15 +36,22 @@ export default function Home() {
         </div>
       </div>
       <div id="about" className="py-[100px] flex justify-center items-center">
-        <div className="flex flex-col justify-center text-center items-center">
+        <div className="relative flex flex-col justify-center text-center items-center">
           <h1 className="text-[40px] sm:text-[60px] font-bold title">About</h1>
           <div className="flex justify-center gap-20 max-w-[800px]">
             <img
-              src=""
+              src="/robot_hand.png"
               alt="about"
-              height={100}
-              width={100}
-              className="hidden sm:block"
+              height={400}
+              width={400}
+              className="hidden sm:block absolute top-[-20%] left-[-15%] opacity-50 "
+            />
+            <img
+              src="/robot_hand.png"
+              alt="about"
+              height={150}
+              width={150}
+              className="hidden sm:block opacity-0"
             />
             <p className="sm:text-[20px] text-[15px] opacity-75">
               error officia vel dolore, facilis eligendi debitis earum

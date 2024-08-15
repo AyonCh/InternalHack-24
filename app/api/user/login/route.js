@@ -52,5 +52,5 @@ export async function POST(req) {
     maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
   });
 
-  return NextResponse.json({ message: "Logged in" });
+  return NextResponse.json({ message: "Logged in successfully" });
 }

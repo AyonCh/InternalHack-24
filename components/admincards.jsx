@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "./ui/use-toast";
 
 export default function AdminCard({ data }) {
   const [newTitle, setNewTitle] = useState("");
@@ -23,18 +24,21 @@ export default function AdminCard({ data }) {
     setNewImage("");
   };
 
-  const handleSubmit = (e, title, description, price, image, key) => {
+  const handleSubmit = async (e, title, description, price, image, key) => {
     e.preventDefault();
 
-    axios.post(`${process.env.NEXT_PUBLIC_URI}/api/shop/update`, {
-      title,
-      newTitle: newTitle ? newTitle : title,
-      newDescription: newDescription ? newDescription : description,
-      newPrice: newPrice ? newPrice : price,
-      newImage: newImage ? newImage : image,
-    });
+    let res = (
+      await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/shop/update`, {
+        title,
+        newTitle: newTitle ? newTitle : title,
+        newDescription: newDescription ? newDescription : description,
+        newPrice: newPrice ? newPrice : price,
+        newImage: newImage ? newImage : image,
+      })
+    ).data;
 
     handleClick(key, "close");
+    toast({ description: res["message"] });
   };
 
   const handleFileUpload = (e) => {
@@ -53,7 +57,7 @@ export default function AdminCard({ data }) {
       {data.map(({ title, description, price, image }, key) => (
         <>
           <div
-            className="relative cursor-pointer w-[335px] sm:w-[250px]"
+            className="flex flex-col justify-between cursor-pointer w-[450px] sm:w-[250px]"
             onClick={() => handleClick(key, "open")}
             key={key}
           >
@@ -63,14 +67,14 @@ export default function AdminCard({ data }) {
               height={450}
               width={450}
               draggable={false}
-              onDragStart={() => {}}
+              onDragStart={() => { }}
               className="rounded-lg z-[-1]"
             />
-            <div className="rounded-b-lg bg-background/10 absolute bottom-0 left-0 right-0 px-4 py-3 backdrop-blur-[10px]">
+            <div className="rounded-b-lg bg-background/10 px-4 py-3 backdrop-blur-[10px]">
               <div className="flex justify-between">
                 <div className="">
                   <h1 className="text-xl font-bold">{title}</h1>
-                  <p className="text-sm text-text/50 w-20 overflow-x-hidden whitespace-nowrap">
+                  <p className="text-sm text-text/50 w-20 sm:w-40 overflow-x-hidden whitespace-nowrap">
                     {description}
                   </p>
                 </div>
@@ -80,24 +84,24 @@ export default function AdminCard({ data }) {
           </div>
           <dialog
             id={"dialog_" + key}
-            className="w-dvw h-dvh p-5 rounded-lg text-text border border-primary/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
+            className="w-dvw h-dvh p-10 rounded-lg text-text border border-primary/10 bg-background bg-opacity-10 backdrop:backdrop-blur-xl"
           >
-            <div className="w-full h-full flex justify-center gap-1 sm:gap-10 items-center md:flex-row flex-col md:text-left sm:pr-10">
-              <div className="relative cursor-pointer w-[500px]">
+            <div className="w-full h-full flex justify-center gap-2 sm:gap-10 items-center lg:flex-row flex-col md:text-left">
+              <div className="relative cursor-pointer sm:w-[500px]">
                 <img
                   src={newImage || image}
                   alt="image"
                   height={500}
                   width={500}
                   draggable={false}
-                  onDragStart={() => {}}
+                  onDragStart={() => { }}
                   className="rounded-lg z-[-1]"
                 />
-                <div className="rounded-b-lg bg-background/10 absolute bottom-0 left-0 right-0 px-4 py-3 backdrop-blur-[10px]">
+                <div className="rounded-b-lg bg-background/10 px-4 py-3 backdrop-blur-[10px]">
                   <div className="flex justify-between">
                     <div className="">
                       <h1 className="text-xl font-bold">{newTitle || title}</h1>
-                      <p className="text-sm text-text/50 w-60 overflow-x-hidden whitespace-nowrap">
+                      <p className="text-sm text-text/50 w-20 sm:w-40 overflow-x-hidden whitespace-nowrap">
                         {newDescription || description}
                       </p>
                     </div>
@@ -106,7 +110,7 @@ export default function AdminCard({ data }) {
                 </div>
               </div>
               <form
-                className="flex flex-col justify-between w-[600px] gap-5"
+                className="flex flex-col justify-between w-full lg:w-[600px] gap-5"
                 onSubmit={(e) =>
                   handleSubmit(e, title, description, price, image, key)
                 }
@@ -145,16 +149,16 @@ export default function AdminCard({ data }) {
                     height={100}
                     width={100}
                     draggable={false}
-                    onDragStart={() => {}}
+                    onDragStart={() => { }}
                     className="rounded-lg z-[-1]"
                   />
                 </label>
-                <button className="hover:bg-primary/5 p-2 rounded-md w-full">
+                <button className=" rounded-lg py-2 px-6 hover:bg-primary/10 bg-primary/5 w-full">
                   Submit
                 </button>
               </form>
               <button
-                className="absolute top-5 right-5 h-6 w-6"
+                className="absolute top-5 right-5 h-6 w-6 cursor-pointer"
                 onClick={() => handleClick(key, "close")}
               >
                 &#10005;

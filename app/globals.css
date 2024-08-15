@@ -134,3 +134,7 @@ html {
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(208, 126, 247, 0.2);
 }
+
+.img {
+  transform: rotateY(180deg);
+}

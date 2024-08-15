@@ -20,6 +20,6 @@ export async function POST(req) {
   });
 
   return NextResponse.json({
-    message: "Signed Up",
+    message: "Signed Up successfully",
   });
 }

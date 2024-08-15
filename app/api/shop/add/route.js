@@ -20,6 +20,6 @@ export async function POST(req) {
   });
 
   return NextResponse.json({
-    message: "Added item to shop",
+    message: "Added item to shop successfully",
   });
 }

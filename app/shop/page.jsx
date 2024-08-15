@@ -7,6 +7,7 @@ export default function Shop() {
   const [search, setSearch] = useState("");
   const [res, setRes] = useState([]);
   const [data, setData] = useState([]);
+  const [session, setSession] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -15,6 +16,11 @@ export default function Shop() {
       ).data;
       setRes(response);
       setData(response);
+
+      let res = (
+        await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/user/auth`)
+      ).data;
+      setSession(res);
     })();
   }, []);
 
@@ -27,7 +33,7 @@ export default function Shop() {
   }, [search]);
 
   return (
-    <div className="px-[30px] pt-[100px]">
+    <div className="px-[30px] pt-[100px] pb-32">
       <h1 className="text-[40px] sm:text-[60px] font-bold title text-center pb-5">
         Shop
       </h1>
@@ -39,7 +45,11 @@ export default function Shop() {
           onChange={(e) => setSearch(e.target.value)}
           className="border border-primary/10 rounded-md bg-transparent p-2 w-full placeholder:text-text/25"
         />
-        {res.length ? <ShopCards data={data} /> : "Loading..."}
+        {res.length ? (
+          <ShopCards data={data} session={session} />
+        ) : (
+          "Loading..."
+        )}
       </div>
     </div>
   );
