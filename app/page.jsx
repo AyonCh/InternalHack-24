@@ -14,10 +14,12 @@ export default function Home() {
                 NuxeCorps
               </h1>
               <p className="sm:text-[20px] text-[15px] opacity-75">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus, eos sed? Porro laborum error officia vel dolore,
-                facilis eligendi debitis earum voluptatum accusamus est, sunt
-                quos accusantium, corrupti autem sapiente.
+                At NuxeCorps, we are dedicated to pioneering solutions for major
+                illnesses. We have helped over 100,000+ children by supporting
+                them in their fight against illness through innovation and
+                creativity. Our commitment is to use advanced technology and to
+                provide children the care they deserve as humanities future to
+                make a real difference in the lives of those who need it most.{" "}
               </p>
             </div>
 
@@ -54,8 +56,9 @@ export default function Home() {
               className="hidden sm:block opacity-0"
             />
             <p className="sm:text-[20px] text-[15px] opacity-75">
-              error officia vel dolore, facilis eligendi debitis earum
-              voluptatum accusamus est, sunt quos accusantium, corrupti autem
+              NuxeCorps is a multinational company committed to the betterment
+              of the medical industry. Not only do our executives have personal
+              experience with the topic including our CEO.
             </p>
           </div>
         </div>
